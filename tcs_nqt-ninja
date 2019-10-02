@@ -1,0 +1,48 @@
+PROBLEM STATEMENT:
+Among these, Varahamitra was an astrologer of eminence and his book Brihat Jataka is a reckond
+as the ultimate authority in astrology. He was once talking with Amarasimha, another gem among 
+the nava ratnas and the author of Sanskrit thesaurus, Amarakosha. Amarasimha wanted to know the
+final position of person, who starts from the origin 0 0 and travels per following scheme.
+
+He first turns right and travels 10 units of distance.
+His second turn is upward for 20 units.
+Third turn is to the left for 30 units.
+Fourth is downwards for 40 units.
+Fifth turn is to the right (again) for 50 units.
+... and thus he travels, every time increasing the travel distance by 10 units.
+
+While Varahamihira could use his astrology skills to predict movement based on plam=netray positions
+, use your programming expertise to print the final position, given the number of turns (n):
+2<=n<=1000
+
+INPUT-1: 3
+EXPECTED OUTPUT: -20 20
+INPUT-2: 4
+EXPECTED OTPUT: -20 -20
+
+SOLUTION: #python_code
+
+n=int(input())
+d=10
+x_count=0 
+y_count=0 
+x=0 
+y=0 
+for i in range(1,n+1):
+    if i%2!=0:
+        if x_count<1:
+            x+=d 
+            x_count=1 
+        else:
+            x-=d 
+            x_count=0
+    else:
+        if y_count<1:
+            y+=d 
+            y_count=1 
+        else:
+            y-=d 
+            y_count=0
+    d+=10
+print(x,y)
+
